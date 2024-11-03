@@ -14,6 +14,9 @@ class NoEnderPearlVanish : JavaPlugin() {
 
     override fun onDisable() {
         // Plugin shutdown logic
-        logger.info("NoEnderPearlVanish plugin has been disabled.")
+        server.worlds.forEach { world ->
+            world.setGameRuleValue("enderPearlsVanishOnDeath", "true")
+            logger.info("NoEnderPearlVanish plugin has been disabled.")
+        }
     }
 }
